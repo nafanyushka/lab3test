@@ -1,0 +1,11 @@
+DominoTest/.vs
+DominoTest/Debug
+DominoTest/DominoTest.sln
+DominoTest/DominoTest/static
+DominoTest/DominoTest/Debug
+DominoTest/DominoTest/x64
+DominoTest/packages
+DominoTest/DominoTest/Domino.vcxproj
+DominoTest/DominoTest/DominoTest.vcxproj.filters
+DominoTest/DominoTest/DominoTest.vcxproj.user
+static
