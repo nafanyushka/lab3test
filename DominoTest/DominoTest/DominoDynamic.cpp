@@ -78,7 +78,7 @@ namespace DominoDynamic {
 		this->dominos = set.dominos;
 		this->curSize = set.curSize;
 		set.curSize = 0;
-//		set.dominos = nullptr;
+		//		set.dominos = nullptr;
 	}
 
 	DominoSet::DominoSet() : curSize(1)
@@ -176,7 +176,7 @@ namespace DominoDynamic {
 
 		for (int i = 0; i < curSize; i++) {
 			if (value == dominos[i])
-				(*newSet) + (dominos[i]);
+				(*newSet) += (dominos[i]);
 		}
 		return newSet;
 	}
@@ -221,9 +221,10 @@ namespace DominoDynamic {
 		set.remove(set[(set.getCurSize() - 1)]);
 	}
 
-	void operator+(DominoSet& set, Domino domino)
+	DominoSet& operator+=(DominoSet& set, Domino domino)
 	{
 		set.put(domino);
+		return set;
 	}
 
 	DominoSet* operator+(DominoSet& set0, DominoSet& set1)
@@ -232,15 +233,16 @@ namespace DominoDynamic {
 		Domino domino;
 		set->remove(domino);
 		for (int i = 0; i < set0.getCurSize(); i++)
-			*set + set0.getDominos()[i];
+			*set += set0.getDominos()[i];
 		for (int i = 0; i < set1.getCurSize(); i++)
-			*set + set1.getDominos()[i];
+			*set += set1.getDominos()[i];
 		return set;
 	}
 
-	void operator-(DominoSet& set, Domino domino)
+	DominoSet& operator-=(DominoSet& set, Domino domino)
 	{
 		set.remove(domino);
+		return set;
 	}
 
 	int DominoSet::getCurSize() const

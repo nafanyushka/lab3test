@@ -44,13 +44,13 @@ namespace DominoDynamic {
 		void put(static Domino domino);
 		DominoSet* getSubset(const int value) const;
 		DominoSet* openByNumber(const int number) const;
-		DominoSet& operator = (const DominoSet& a);	
+		DominoSet& operator = (const DominoSet& a);
 		DominoSet& operator = (DominoSet&& set);
 		Domino& operator [] (int a);
 		friend void operator ++ (DominoSet& set);
 		friend void operator -- (DominoSet& set);
-		friend void operator + (DominoSet& set, Domino domino);
+		friend DominoSet& operator += (DominoSet& set, Domino domino);
 		friend DominoSet* operator + (DominoSet& set0, DominoSet& set1);
-		friend void operator - (DominoSet& set, Domino domino);
+		friend DominoSet& operator -= (DominoSet& set, Domino domino);
 	};
 }

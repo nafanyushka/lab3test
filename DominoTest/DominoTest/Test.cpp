@@ -48,17 +48,17 @@ TEST_F(DominoTesting, FunctionsTest)
 {
 	using namespace DominoDynamic;
 	Domino domino(0, 5);
-	*set + domino;
+	*set += domino;
 	EXPECT_EQ((*set)[set->find(domino)].bot, 0);
 	EXPECT_EQ((*set)[set->find(domino)].top, 5);
 	EXPECT_EQ((*set).contains(domino), true);
-	*set - domino;
+	*set -= domino;
 	EXPECT_EQ((*set).find(domino), -1);
 	EXPECT_EQ((*set).getCurSize(), 1);
 	EXPECT_EQ((*set).contains(domino), false);
 
 	DominoSet* set1 = new DominoSet(Domino(3, 5));
-	*set + domino;
+	*set += domino;
 	DominoSet* set2 = *set1 + *set;
 	EXPECT_EQ((*set2).contains(domino), true);
 	EXPECT_EQ((*set2).contains(Domino(5, 3)), true);
@@ -67,9 +67,9 @@ TEST_F(DominoTesting, FunctionsTest)
 	delete set2;
 	set->addRandom();
 	EXPECT_EQ(set->getCurSize(), 3);
-	(*set) - set->getDominos()[2];
+	(*set) -= set->getDominos()[2];
 	//set: [0, 0], [1, 2], [0, 5]
-	(*set) + Domino(2, 1);
+	(*set) += Domino(2, 1);
 	EXPECT_EQ((*set)[0].bot, 0);
 	EXPECT_EQ((*set)[1].top, 5);
 	EXPECT_EQ((*set)[2].top, 2);
